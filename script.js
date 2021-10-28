@@ -71,4 +71,84 @@ function game() {
     }
 }
 
-alert(game());
+const rockBtn = document.querySelector('#rockBtn');
+const paperBtn = document.querySelector('#paperBtn');
+const scissorsBtn = document.querySelector('#scissorsBtn');
+
+let playerScore = 0;
+let computerScore = 0;
+
+rockBtn.addEventListener('click', () => {
+    let roundResult = playRound(ROCK, computerPlay());
+    const result = document.createElement('div');
+    result.setAttribute('style', 'white-space: pre;');
+    if (roundResult.includes("Lose")) {
+        computerScore ++;
+    }
+    else if (roundResult.includes("Win")) {
+        playerScore ++;
+    }
+    if (playerScore === 5) {
+        result.textContent = roundResult + "! The score is Player: " + playerScore + ", Computer: " + computerScore + "\r\n";
+        result.textContent += `The game is over! You win by a score of ${playerScore} vs ${computerScore}`;
+    }
+    else if (computerScore === 5) {
+        result.textContent = roundResult + "! The score is Player: " + playerScore + ", Computer: " + computerScore + "\r\n";
+        result.textContent += `The game is over! You lose by a score of ${playerScore} vs ${computerScore}`;
+    }
+    else {
+        result.textContent = roundResult + '! The score is ' + 'Player: ' + playerScore + ', Computer: ' + computerScore;
+    }
+    results.appendChild(result);});
+
+paperBtn.addEventListener('click', () => {
+    let roundResult = playRound(PAPER, computerPlay());
+    const result = document.createElement('div');
+    result.setAttribute('style', 'white-space: pre;');
+    if (roundResult.includes("Lose")) {
+        computerScore ++;
+    }
+    else if (roundResult.includes("Win")) {
+        playerScore ++;
+    }
+    if (playerScore === 5) {
+        result.textContent = roundResult + "! The score is Player: " + playerScore + ", Computer: " + computerScore + "\r\n";
+        result.textContent += `The game is over! You win by a score of ${playerScore} vs ${computerScore}`;
+    }
+    else if (computerScore === 5) {
+        result.textContent = roundResult + "! The score is Player: " + playerScore + ", Computer: " + computerScore + "\r\n";
+        result.textContent += `The game is over! You lose by a score of ${playerScore} vs ${computerScore}`;
+    }
+    else {
+        result.textContent = roundResult + '! The score is ' + 'Player: ' + playerScore + ', Computer: ' + computerScore;
+    }
+    results.appendChild(result);});
+
+scissorsBtn.addEventListener('click', () => {
+    let roundResult = playRound(SCISSORS, computerPlay());
+    const result = document.createElement('div');
+    result.setAttribute('style', 'white-space: pre;');
+    if (roundResult.includes("Lose")) {
+        computerScore ++;
+    }
+    else if (roundResult.includes("Win")) {
+        playerScore ++;
+    }
+    if (playerScore === 5) {
+        result.textContent = roundResult + "! The score is Player: " + playerScore + ", Computer: " + computerScore + "\r\n";
+        result.textContent += `The game is over! You win by a score of ${playerScore} vs ${computerScore}`;
+    }
+    else if (computerScore === 5) {
+        result.textContent = roundResult + "! The score is Player: " + playerScore + ", Computer: " + computerScore + "\r\n";
+        result.textContent += `The game is over! You lose by a score of ${playerScore} vs ${computerScore}`;
+    }
+    else {
+        result.textContent = roundResult + '! The score is ' + 'Player: ' + playerScore + ', Computer: ' + computerScore;
+    }
+    results.appendChild(result);});
+
+const results = document.createElement('div');
+const container = document.querySelector('body');
+
+container.appendChild(results);
+
